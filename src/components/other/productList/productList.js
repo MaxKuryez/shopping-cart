@@ -1,51 +1,25 @@
 import React, { useState, useEffect } from "react";
-import styled from "@emotion/styled";
 import {
   Grid,
   Typography,
-  Card,
-  CardActionArea,
-  CardMedia,
   CardContent,
 } from "@mui/material";
 import Rating from "@mui/material/Rating";
-
-const Container = styled("div")({
-  display: "flex",
-  height: "100vh",
-  alignItems: "flex-start",
-  justifyContent: "center",
-  padding: "20px",
-});
-
-const StyledCard = styled(Card)({
-  width: "300px",
-  marginBottom: "20px",
-});
-
-const ProductImage = styled(CardMedia)({
-  height: "250px",
-  "& img": {
-    objectFit: "contain",
-    height: "100%",
-  },
-});
-
-const ProductTitle = styled(Typography)({
-  display: "-webkit-box",
-  "-webkit-line-clamp": 2,
-  "-webkit-box-orient": "vertical",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  height: 63
-});
+import { Container,
+  StyledCard,
+  ProductImage,
+  ProductTitle,
+  GridStyled,
+  PriceTypography,
+  ButtonStyled
+} from "./styled";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const MAX_TITLE_LENGTH = 30;
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=30")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -54,16 +28,19 @@ const ProductPage = () => {
   }, []);
 
   return (
+    <>
+    <Typography variant="h3" component="h1" gutterBottom textAlign="center" marginTop={15}>
+      Products
+    </Typography>
     <Container>
-      <Grid container spacing={2}>
+      <Grid container>
         {products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} key={product.id}>
+          <GridStyled item key={product.id}>
             <StyledCard>
-              <CardActionArea>
                 <ProductImage
                   component="img"
                   image={product.image}
-                  title={product.title}
+                  alt={product.title}
                 />
                 <CardContent>
                 <ProductTitle gutterBottom variant="h5" component="h2">
@@ -74,23 +51,27 @@ const ProductPage = () => {
                   <Rating
                     name="half-rating-read"
                     value={product.rating.rate}
-                    precision={0.5}
+                    precision={0.2}
+                    style={{width: "100%"}}
                     readOnly
                   />
-                  <Typography
+                  <PriceTypography
                     variant="h6"
                     color="textPrimary"
                     component="p"
                   >
                     ${product.price}
-                  </Typography>
+                  </PriceTypography>
+                  <ButtonStyled variant="contained" size="small">
+                      Add to Cart
+                  </ButtonStyled>
                 </CardContent>
-              </CardActionArea>
             </StyledCard>
-          </Grid>
+          </GridStyled>
         ))}
       </Grid>
     </Container>
+    </>
   );
 };
 

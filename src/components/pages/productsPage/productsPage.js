@@ -1,8 +1,13 @@
-import ProductList from "../../productList/productList";
+import ProductList from "../../other/productList/productList";
+import Header from "../../layout/header/header";
 
 const ProductPage = () => {
   return (
-    <ProductList />
+    <>
+      <Header />
+      <ProductList />
+    </>
+    
   );
 };
 
