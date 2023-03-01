@@ -6,7 +6,8 @@ import {
   ListItemText,
   Divider,
   Typography,
-  IconButton
+  IconButton,
+  Button
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { selectCartSlice } from '../../../store/slices';
@@ -35,6 +36,10 @@ const Cart = () => {
               </>
             : <Typography sx={{ p: 2 }}>Your cart is empty.</Typography>
           }
+          <Divider />
+          <Button variant="contained" size="small" onClick={() => setOpen(false)} sx={{height: 25, fontSize: 12}}>
+            Close
+          </Button>
       </List>
     </Drawer>
     </>

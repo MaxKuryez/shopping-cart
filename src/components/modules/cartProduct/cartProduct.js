@@ -36,7 +36,7 @@ const CartProduct = ({ product }) => {
           : product.title}
         secondary={`${product.price}$`}
       />
-      <Select value={product.quantity} onChange={handleQuantityChange}>
+      <Select variant="standard" value={product.quantity} onChange={handleQuantityChange} sx={{ marginRight: "40px" }}>
       {quantities.map((quantity) => (
         <MenuItem key={quantity} value={quantity}>
           {quantity}
