@@ -7,15 +7,6 @@ import {
   Button
 } from "@mui/material";
 
-export const Container = styled("div")({
-  display: "flex",
-  height: "100vh",
-  marginTop: 50,
-  alignItems: "flex-start",
-  justifyContent: "center",
-  padding: "20px",
-});
-
 export const StyledCard = styled(Card)({
   width: "300px",
   marginBottom: "20px",

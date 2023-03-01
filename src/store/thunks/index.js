@@ -1,0 +1,1 @@
+export { getProductsThunk } from './getProductsThunk';

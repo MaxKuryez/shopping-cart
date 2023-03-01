@@ -1,4 +1,4 @@
-import ProductList from "../../other/productList/productList";
+import ProductList from "../../modules/productList/productList";
 import Header from "../../layout/header/header";
 
 const ProductPage = () => {
@@ -7,7 +7,6 @@ const ProductPage = () => {
       <Header />
       <ProductList />
     </>
-    
   );
 };
 

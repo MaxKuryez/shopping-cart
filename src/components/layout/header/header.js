@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Typography } from "@mui/material";
-import ShoppingCart from "../../other/shoppingCart/shoppingCart";
+import ShoppingCart from "../../modules/shoppingCart/shoppingCart";
+import Error from "../../layout/error/error";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
         </Typography>
         <ShoppingCart />
       </Toolbar>
+      <Error />
     </AppBar>
   );
 };
