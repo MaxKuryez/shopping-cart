@@ -12,14 +12,14 @@ import {
   ButtonStyled
 } from "./styled";
 import { useDispatch } from 'react-redux';
-import { addProduct } from "../../../store/slices";
+import { addToCartThunk } from "../../../store/thunks";
 
 const Product = ({ product }) => {
   const MAX_TITLE_LENGTH = 30;
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(addProduct(product));
+    dispatch(addToCartThunk(product));
   }
 
   return (

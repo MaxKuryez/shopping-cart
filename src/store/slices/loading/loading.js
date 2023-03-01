@@ -24,6 +24,8 @@ const extraReducersBuilder = (
           state.isLoading = true;
         });
         break;
+      default:
+        break;
     }
   }
 };
@@ -43,6 +45,5 @@ export const loading = createSlice({
   },
 });
 
-export const {} = loading.actions;
 export const selectLoadingSlice = (state) => state.loading;
 export default loading.reducer;

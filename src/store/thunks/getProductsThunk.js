@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { ENDPOINTS } from '../../constants';
 
 export const getProductsThunk = createAsyncThunk(
   'getProductsThunk',
@@ -8,7 +9,7 @@ export const getProductsThunk = createAsyncThunk(
     //console.log(products.products);
 
     try {
-      const response = await axios.get("https://fakestoreapi.com/prsdxoducts");
+      const response = await axios.get(ENDPOINTS.PRODUCTS);
 
       return response.data;
     } catch (error) {

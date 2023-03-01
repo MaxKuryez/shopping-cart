@@ -52,12 +52,15 @@ export const errors = createSlice({
       state.errorCode = null;
       state.errorMessage = "";
     },
+    addError: (state, {payload}) => {
+      state.errorMessage = payload.errorMessage;
+    }
   },
   extraReducers: (builder) => {
     AsyncThunksArray.forEach((asyncThunk) => extraReducersBuilder(asyncThunk, builder));
   },
 });
 
-export const { clearError } = errors.actions;
+export const { clearError, addError } = errors.actions;
 export const selectErrorsSlice = (state) => state.errors;
 export default errors.reducer;
