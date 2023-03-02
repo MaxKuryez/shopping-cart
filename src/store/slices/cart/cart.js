@@ -4,6 +4,7 @@ import { addToCartThunk } from "store/thunks";
 const initialState = {
   products: {},
   totalCost: 0,
+  numberItems: 0,
 };
 
 export const cart = createSlice({
@@ -17,6 +18,7 @@ export const cart = createSlice({
 
       state.totalCost = Number(state.totalCost) - Number(price * quantity);
       state.totalCost = state.totalCost.toFixed(2);
+      state.numberItems -= quantity;
     },
     changeQuantity: (state, { payload }) => {
       const { id, quantity, price } = payload;
@@ -28,6 +30,7 @@ export const cart = createSlice({
         Number(state.totalCost) - Number(price * prevQuantity) +
         Number(price * quantity);
       state.totalCost = state.totalCost.toFixed(2);
+      state.numberItems += quantity - prevQuantity;
     },
   },
   extraReducers: (builder) => {
@@ -43,6 +46,7 @@ export const cart = createSlice({
 
         state.totalCost = Number(state.totalCost) + Number(price);
         state.totalCost = state.totalCost.toFixed(2);
+        state.numberItems += 1;
       })
   },
 });
