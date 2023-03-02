@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import * as AsyncThunksModule from '../../thunks';
-import { extractErrorMessage } from './utils';
+import { createSlice } from "@reduxjs/toolkit";
+import * as AsyncThunksModule from "../../thunks";
+import { extractErrorMessage } from "./utils";
 
 const AsyncThunksArray = Object.values(AsyncThunksModule);
 
@@ -12,7 +12,7 @@ const initialState = {
 const extraReducersBuilder = (asyncThunk, builder) => {
   for (const key in asyncThunk) {
     switch (key) {
-      case 'fulfilled':
+      case "fulfilled":
         builder.addCase(asyncThunk.fulfilled, () => {
           return {
             errorCode: null,
@@ -20,19 +20,19 @@ const extraReducersBuilder = (asyncThunk, builder) => {
           };
         });
         break;
-      case 'rejected':
+      case "rejected":
         builder.addCase(asyncThunk.rejected, (state, { payload }) => {
           if (payload) {
             const errorMessage = payload.response
               ? extractErrorMessage(payload.response.data)
               : payload.message;
 
-            state.errorCode = payload.response ? payload.response.status : '';
+            state.errorCode = payload.response ? payload.response.status : "";
             state.errorMessage = errorMessage;
           }
         });
         break;
-      case 'pending':
+      case "pending":
         builder.addCase(asyncThunk.pending, (state) => {
           state.errorCode = null;
           state.errorMessage = "";
@@ -45,7 +45,7 @@ const extraReducersBuilder = (asyncThunk, builder) => {
 };
 
 export const errors = createSlice({
-  name: 'errors',
+  name: "errors",
   initialState,
   reducers: {
     clearError: (state) => {

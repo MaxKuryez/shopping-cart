@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
-import { selectLoadingSlice } from '../../../store/slices';
-import { LoadingContainer } from './styled';
+import { Typography } from "@mui/material";
+import { useSelector } from "react-redux";
+import { selectLoadingSlice } from "store/slices";
+import { LoadingContainer } from "./styled";
 
 const Loading = () => {
   const { isLoading } = useSelector(selectLoadingSlice);

@@ -1,2 +1,2 @@
-export { default as errorsReducer } from './errors';
-export * from './errors';
+export { default as errorsReducer } from "./errors";
+export * from "./errors";

@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import * as AsyncThunksModule from '../../thunks';
+import { createSlice } from "@reduxjs/toolkit";
+import * as AsyncThunksModule from "../../thunks";
 
 const AsyncThunksArray = Object.values(AsyncThunksModule);
 
@@ -9,17 +9,17 @@ const extraReducersBuilder = (
 ) => {
   for (const key in asyncThunk) {
     switch (key) {
-      case 'fulfilled':
+      case "fulfilled":
         builder.addCase(asyncThunk.fulfilled, (state) => {
           state.isLoading = false;
         });
         break;
-      case 'rejected':
+      case "rejected":
         builder.addCase(asyncThunk.rejected, (state) => {
           state.isLoading = false;
         });
         break;
-      case 'pending':
+      case "pending":
         builder.addCase(asyncThunk.pending, (state) => {
           state.isLoading = true;
         });
@@ -35,7 +35,7 @@ const initialState = {
 };
 
 export const loading = createSlice({
-  name: 'loading',
+  name: "loading",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

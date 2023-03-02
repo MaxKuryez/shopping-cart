@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import {
-  Grid,
-  Typography,
-} from "@mui/material";
+import { useEffect } from "react";
+import { Grid, Typography } from "@mui/material";
 import { Container } from "./styled";
-import { getProductsThunk } from "../../../store/thunks";
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { selectProductsSlice } from "../../../store/slices";
-import Product from "../product/product";
+import { getProductsThunk } from "store/thunks";
+import { useDispatch, useSelector } from "react-redux";
+import { selectProductsSlice } from "store/slices";
+import { Product } from "../product";
 
-const ProductPage = () => {
+const ProductList = () => {
   const dispatch = useDispatch();
   const { products } = useSelector(selectProductsSlice);
 
@@ -34,4 +30,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductList;

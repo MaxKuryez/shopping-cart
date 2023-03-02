@@ -1,8 +1,8 @@
-import ProductPage from "./components/pages/productsPage/productsPage";
+import Router from "./Router";
 
 function App() {
   return (
-    <ProductPage />
+    <Router />
   );
 }
 

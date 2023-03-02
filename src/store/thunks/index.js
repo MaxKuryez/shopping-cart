@@ -1,2 +1,2 @@
-export { getProductsThunk } from './getProductsThunk';
-export { addToCartThunk } from './addToCartThunk';
+export { getProductsThunk } from "./getProductsThunk";
+export { addToCartThunk } from "./addToCartThunk";

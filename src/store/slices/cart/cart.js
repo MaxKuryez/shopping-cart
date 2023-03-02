@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { addToCartThunk } from '../../thunks';
+import { createSlice } from "@reduxjs/toolkit";
+import { addToCartThunk } from "../../thunks";
 
 const initialState = {
   products: {},
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const cart = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     removeProduct: (state, { payload }) => {

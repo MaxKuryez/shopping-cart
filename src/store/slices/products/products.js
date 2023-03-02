@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getProductsThunk } from '../../thunks';
+import { createSlice } from "@reduxjs/toolkit";
+import { getProductsThunk } from "../../thunks";
 
 const initialState = {
   products: [],
 };
 
 export const products = createSlice({
-  name: 'productsSlice',
+  name: "productsSlice",
   initialState,
   extraReducers: (builder) => {
     builder

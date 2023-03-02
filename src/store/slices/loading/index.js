@@ -1,2 +1,2 @@
-export { default as loadingReducer } from './loading';
-export * from './loading';
+export { default as loadingReducer } from "./loading";
+export * from "./loading";

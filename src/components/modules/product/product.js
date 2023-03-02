@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CardContent,
 } from "@mui/material";
@@ -11,8 +10,8 @@ import {
   PriceTypography,
   ButtonStyled
 } from "./styled";
-import { useDispatch } from 'react-redux';
-import { addToCartThunk } from "../../../store/thunks";
+import { useDispatch } from "react-redux";
+import { addToCartThunk } from "store/thunks";
 
 const Product = ({ product }) => {
   const MAX_TITLE_LENGTH = 30;

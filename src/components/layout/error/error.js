@@ -1,7 +1,6 @@
-import React from 'react';
-import { Snackbar, Alert, AlertTitle } from '@mui/material';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearError, selectErrorsSlice } from '../../../store/slices';
+import { Snackbar, Alert, AlertTitle } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { clearError, selectErrorsSlice } from "store/slices";
 
 const Error = () => {
   const dispatch = useDispatch();

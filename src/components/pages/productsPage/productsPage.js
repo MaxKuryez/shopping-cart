@@ -1,6 +1,6 @@
-import ProductList from "../../modules/productList/productList";
-import Header from "../../layout/header/header";
-import Loading from "../../layout/loading/loading";
+import { ProductList } from "components/modules/productList";
+import { Header } from "components/layout/header";
+import { Loading } from "components/layout/loading";
 
 const ProductPage = () => {
   return (

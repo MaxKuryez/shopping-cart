@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Drawer,
   List,
@@ -10,11 +10,11 @@ import {
   Button
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { selectCartSlice } from '../../../store/slices';
-import { useSelector } from 'react-redux';
-import CartProduct from "../cartProduct/cartProduct";
+import { selectCartSlice } from "store/slices";
+import { useSelector } from "react-redux";
+import { CartProduct } from "../cartProduct";
 
-const Cart = () => {
+const ShoppingCart = () => {
   const [open, setOpen] = useState(false);
   const { products, totalCost } = useSelector(selectCartSlice);
 
@@ -46,4 +46,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default ShoppingCart;

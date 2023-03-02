@@ -7,9 +7,9 @@ import {
   Select,
   MenuItem
 } from "@mui/material";
-import { removeProduct, changeQuantity } from '../../../store/slices';
-import { useDispatch } from 'react-redux';
-import { MAX_PRODUCTS_OF_SAME_TYPE } from "../../../constants";
+import { removeProduct, changeQuantity } from "store/slices";
+import { useDispatch } from "react-redux";
+import { MAX_PRODUCTS_OF_SAME_TYPE } from "constants";
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
