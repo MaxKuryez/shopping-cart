@@ -13,4 +13,4 @@ export interface Product {
 
 export interface CartProductType extends Product {
   quantity: number;
-}
+};

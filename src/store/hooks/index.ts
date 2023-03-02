@@ -1,2 +1,2 @@
-export { useTypedDispatch } from './useTypedDispatch';
-export { useTypedSelector } from './useTypedSelector';
+export { useTypedDispatch } from "./useTypedDispatch";
+export { useTypedSelector } from "./useTypedSelector";

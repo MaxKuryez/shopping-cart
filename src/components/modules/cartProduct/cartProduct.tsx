@@ -15,7 +15,7 @@ import { CartProductType } from "types"
 
 interface CartProductProps {
   product: CartProductType;
-}
+};
 
 const CartProduct = ({ product }: CartProductProps) => {
   const dispatch = useDispatch();

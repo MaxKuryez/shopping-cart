@@ -7,4 +7,4 @@ export const extractErrorMessage = (error: string) => {
     return error.substring(startIndex + startTag.length, endIndex);
   }
   return error;
-}
+};

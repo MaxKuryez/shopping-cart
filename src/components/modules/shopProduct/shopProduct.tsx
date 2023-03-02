@@ -16,7 +16,7 @@ import { Product } from "types";
 
 interface ShopProductProps {
   product: Product;
-}
+};
 
 const ShopProduct = ({ product }: ShopProductProps) => {
   const MAX_TITLE_LENGTH = 30;

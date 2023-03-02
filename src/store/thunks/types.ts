@@ -3,6 +3,6 @@ import { AxiosError } from "axios";
 
 export interface ProductError {
   message: string;
-}
+};
 
 export interface AsyncThunkConfig { rejectValue: AxiosError | ProductError; state: RootState };
