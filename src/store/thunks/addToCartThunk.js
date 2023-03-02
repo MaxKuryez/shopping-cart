@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { MAX_PRODUCTS, MAX_PRODUCTS_OF_SAME_TYPE } from "constants";
+import { MAX_PRODUCTS, MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
 
 // Added as a thunk to be able to check for errors and in case the action is forbidden,
 // create an error which will be handled by error slice.

@@ -4,7 +4,7 @@ import { Container } from "./styled";
 import { getProductsThunk } from "store/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProductsSlice } from "store/slices";
-import { Product } from "../product";
+import { ShopProduct } from "../shopProduct";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const ProductList = () => {
     <Container>
       <Grid container>
         {products.map((product) =>
-          <Product product={product} key={product.id}/>
+          <ShopProduct product={product} key={product.id}/>
         )}
       </Grid>
     </Container>

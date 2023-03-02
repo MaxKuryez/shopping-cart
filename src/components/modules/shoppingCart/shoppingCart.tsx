@@ -3,7 +3,7 @@ import {
   Drawer,
   ListItemText,
   Divider,
-  Badge
+  Badge,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { selectCartSlice } from "store/slices";
@@ -23,7 +23,7 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <IconStyled variant="contained" size="small" onClick={() => setOpen(true)}>
+      <IconStyled size="small" onClick={() => setOpen(true)}>
         Shopping Cart
         <Badge badgeContent={numberItems} color="secondary">
           <ShoppingCartIcon />

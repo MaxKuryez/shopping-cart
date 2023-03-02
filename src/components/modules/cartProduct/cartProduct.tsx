@@ -3,14 +3,21 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
-  MenuItem
+  MenuItem,
+  SelectChangeEvent,
+  Select
 } from "@mui/material";
 import { removeProduct, changeQuantity } from "store/slices";
 import { useDispatch } from "react-redux";
-import { MAX_PRODUCTS_OF_SAME_TYPE } from "constants";
-import { StyledButton, StyledSelect } from "./styled";
+import { MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
+import { StyledButton } from "./styled";
+import { CartProductType } from "types"
 
-const CartProduct = ({ product }) => {
+interface CartProductProps {
+  product: CartProductType;
+}
+
+const CartProduct = ({ product }: CartProductProps) => {
   const dispatch = useDispatch();
   const MAX_TITLE_LENGTH = 20;
   const quantities = Array.from({ length: MAX_PRODUCTS_OF_SAME_TYPE }, (_, i) => i + 1);
@@ -19,8 +26,8 @@ const CartProduct = ({ product }) => {
     dispatch(removeProduct(product.id));
   };
 
-  const handleQuantityChange = (event) => {
-    const newQuantity = event.target.value;
+  const handleQuantityChange = (event: SelectChangeEvent<number>) => {
+    const newQuantity = event.target.value as number;
     dispatch(changeQuantity({ ...product, quantity: newQuantity }));
   };
 
@@ -35,13 +42,13 @@ const CartProduct = ({ product }) => {
           : product.title}
         secondary={`${product.price}$`}
       />
-      <StyledSelect variant="standard" value={product.quantity} onChange={handleQuantityChange}>
+      <Select variant="standard" value={product.quantity} onChange={handleQuantityChange}>
       {quantities.map((quantity) => (
         <MenuItem key={quantity} value={quantity}>
           {quantity}
         </MenuItem>
       ))}
-      </StyledSelect>
+      </Select>
       <StyledButton variant="outlined" size="small" onClick={handleRemoveItem}>
         Remove
       </StyledButton>

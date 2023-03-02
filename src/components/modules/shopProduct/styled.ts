@@ -18,11 +18,11 @@ export const ProductImage = styled(CardMedia)({
     objectFit: "contain",
     height: "100%",
   },
-});
+}) as typeof CardMedia;
 
 export const ProductTitle = styled(Typography)({
   height: 63
-});
+}) as typeof Typography;
 
 export const GridStyled = styled(Grid)({
   margin: "auto",
@@ -32,7 +32,7 @@ export const GridStyled = styled(Grid)({
 export const PriceTypography = styled(Typography)({
   alignItems: "center",
   display: "inline-block",
-});
+}) as typeof Typography;
 
 export const ButtonStyled = styled(Button)({
   marginLeft: "auto",
