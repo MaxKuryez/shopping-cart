@@ -10,17 +10,17 @@ import {
   PriceTypography,
   ButtonStyled
 } from "./styled";
-import { useDispatch } from "react-redux";
+import { useTypedDispatch } from "store/hooks";
 import { addToCartThunk } from "store/thunks";
-//import { Product } from "types";
+import { Product } from "types";
 
-//interface ShopProductProps {
-//  product: Product;
-//}
+interface ShopProductProps {
+  product: Product;
+}
 
-const ShopProduct = ({ product }) => {
+const ShopProduct = ({ product }: ShopProductProps) => {
   const MAX_TITLE_LENGTH = 30;
-  const dispatch = useDispatch();
+  const dispatch = useTypedDispatch();
 
   const addToCart = () => {
     dispatch(addToCartThunk(product));

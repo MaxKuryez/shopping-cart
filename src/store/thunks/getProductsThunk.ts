@@ -1,8 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { ENDPOINTS } from "utils";
+import { Product } from "types";
+import { AsyncThunkConfig } from "./types";
 
-export const getProductsThunk = createAsyncThunk(
+export const getProductsThunk = createAsyncThunk<Product[], undefined, AsyncThunkConfig>(
   "getProductsThunk",
   async (_, { rejectWithValue, getState }) => {
     const products = getState().products;
@@ -17,7 +19,7 @@ export const getProductsThunk = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error as AxiosError);
     }
   }
 );

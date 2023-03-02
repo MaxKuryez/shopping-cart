@@ -1,4 +1,4 @@
-export const extractErrorMessage = (error) => {
+export const extractErrorMessage = (error: string) => {
   const startTag = "<pre>";
   const endTag = "</pre>";
   const startIndex = error.indexOf(startTag);

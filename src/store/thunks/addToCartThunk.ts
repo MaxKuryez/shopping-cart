@@ -1,9 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { MAX_PRODUCTS, MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
+import { Product } from "types";
+import { AsyncThunkConfig } from "./types";
 
 // Added as a thunk to be able to check for errors and in case the action is forbidden,
 // create an error which will be handled by error slice.
-export const addToCartThunk = createAsyncThunk(
+export const addToCartThunk = createAsyncThunk<Product, Product, AsyncThunkConfig>(
   "addToCart",
   async (product, { rejectWithValue, getState }) => {
     const cart = getState().cart;

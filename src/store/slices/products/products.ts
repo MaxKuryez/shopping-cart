@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getProductsThunk } from "store/thunks";
+import { RootState } from "store/types";
+import { Product } from "types";
 
 const initialState = {
-  products: [],
+  products: [] as Product[],
 };
 
 export const products = createSlice({
   name: "productsSlice",
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
@@ -17,5 +20,5 @@ export const products = createSlice({
   },
 });
 
-export const selectProductsSlice = (state) => state.products;
+export const selectProductsSlice = (state: RootState) => state.products;
 export default products.reducer;

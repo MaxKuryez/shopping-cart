@@ -38,7 +38,17 @@ const DocumentPage = () => {
         The limits can be changed in the constants.ts file. When changig the limit of max products per type, it will
         also change the number of products that can be selected in cart, using drop down selector.
         <br /><br />
-        Note, that this thunk does not trigger the loading screen, because it is not added to the loading screen thunk handlers
+        Note, that this thunk does not trigger the loading screen, because it is not added to the loading screen thunk handlers.
+        <br /><br />
+        3. Testing errors:
+        <br /><br />
+        In order to test errors, add to cart more than 6 products of same type, or add more than 4 types of products.
+        <br />
+        The other errors that could be tested are request errors, try changing the endpoint in utils/constants or changing GET
+        request in getProductsThunk to PUT.
+        <br />
+        Also, you can try going to Networks in Dev tab and disabling the request to simulate
+        Network Error.
       </TypographyStyled>
     </>
   );

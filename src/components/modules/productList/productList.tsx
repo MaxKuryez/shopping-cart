@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { Grid, Typography } from "@mui/material";
 import { Container } from "./styled";
 import { getProductsThunk } from "store/thunks";
-import { useDispatch, useSelector } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from "store/hooks";
 import { selectProductsSlice } from "store/slices";
 import { ShopProduct } from "../shopProduct";
 
 const ProductList = () => {
-  const dispatch = useDispatch();
-  const { products } = useSelector(selectProductsSlice);
+  const dispatch = useTypedDispatch();
+  const { products } = useTypedSelector(selectProductsSlice);
 
   useEffect(() => {
     dispatch(getProductsThunk());

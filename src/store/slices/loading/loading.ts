@@ -1,11 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import * as AsyncThunksModule from "store/thunks";
+import { RootState } from "store/types";
+import { LoadingStateType } from "./types";
 
 const AsyncThunksArray = Object.values(AsyncThunksModule);
+type AsyncThunks = (typeof AsyncThunksArray)[number];
+
+const initialState = {
+  isLoading: false,
+};
 
 const extraReducersBuilder = (
-  asyncThunk,
-  builder
+  asyncThunk: AsyncThunks,
+  builder: ActionReducerMapBuilder<LoadingStateType>
 ) => {
   for (const key in asyncThunk) {
     switch (key) {
@@ -30,10 +37,6 @@ const extraReducersBuilder = (
   }
 };
 
-const initialState = {
-  isLoading: false,
-};
-
 export const loading = createSlice({
   name: "loading",
   initialState,
@@ -45,5 +48,5 @@ export const loading = createSlice({
   },
 });
 
-export const selectLoadingSlice = (state) => state.loading;
+export const selectLoadingSlice = (state: RootState) => state.loading;
 export default loading.reducer;

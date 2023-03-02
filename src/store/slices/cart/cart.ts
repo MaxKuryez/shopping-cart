@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addToCartThunk } from "store/thunks";
+import { RootState } from "store/types";
+import { CartProducts } from "./types"; 
 
 const initialState = {
-  products: {},
+  products: {} as CartProducts,
   totalCost: 0,
   numberItems: 0,
 };
@@ -17,7 +19,7 @@ export const cart = createSlice({
       delete state.products[payload];
 
       state.totalCost = Number(state.totalCost) - Number(price * quantity);
-      state.totalCost = state.totalCost.toFixed(2);
+      state.totalCost = Number(state.totalCost.toFixed(2));
       state.numberItems -= quantity;
     },
     changeQuantity: (state, { payload }) => {
@@ -29,7 +31,7 @@ export const cart = createSlice({
       state.totalCost =
         Number(state.totalCost) - Number(price * prevQuantity) +
         Number(price * quantity);
-      state.totalCost = state.totalCost.toFixed(2);
+        state.totalCost = Number(state.totalCost.toFixed(2));
       state.numberItems += quantity - prevQuantity;
     },
   },
@@ -45,12 +47,12 @@ export const cart = createSlice({
         }
 
         state.totalCost = Number(state.totalCost) + Number(price);
-        state.totalCost = state.totalCost.toFixed(2);
+        state.totalCost = Number(state.totalCost.toFixed(2));
         state.numberItems += 1;
       })
   },
 });
 
-export const { addProduct, removeProduct, changeQuantity } = cart.actions;
-export const selectCartSlice = (state) => state.cart;
+export const { removeProduct, changeQuantity } = cart.actions;
+export const selectCartSlice = (state: RootState) => state.cart;
 export default cart.reducer;

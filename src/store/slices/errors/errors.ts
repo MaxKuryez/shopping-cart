@@ -1,15 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import * as AsyncThunksModule from "store/thunks";
 import { extractErrorMessage } from "./utils";
+import { AxiosError } from "axios";
+import { RootState } from "store/types";
+import { ErrorStateType } from "./types";  
 
 const AsyncThunksArray = Object.values(AsyncThunksModule);
+type AsyncThunks = (typeof AsyncThunksArray)[number];
 
-const initialState = {
+const initialState: ErrorStateType = {
   errorCode: null,
   errorMessage: "",
 };
 
-const extraReducersBuilder = (asyncThunk, builder) => {
+const extraReducersBuilder = (asyncThunk: AsyncThunks, builder: ActionReducerMapBuilder<ErrorStateType>) => {
   for (const key in asyncThunk) {
     switch (key) {
       case "fulfilled":
@@ -21,14 +25,18 @@ const extraReducersBuilder = (asyncThunk, builder) => {
         });
         break;
       case "rejected":
-        builder.addCase(asyncThunk.rejected, (state, { payload }) => {
-          if (payload) {
-            const errorMessage = payload.response
-              ? extractErrorMessage(payload.response.data)
+        builder.addCase(asyncThunk.rejected, (state, { payload } ) => {
+          if (!payload) return;
+          if (payload instanceof AxiosError) {
+            console.log(payload);
+            const errorMessage = payload.response 
+              ? extractErrorMessage(payload.response?.data as string)
               : payload.message;
 
-            state.errorCode = payload.response ? payload.response.status : "";
+            state.errorCode = payload.response ? payload.response.status : null;
             state.errorMessage = errorMessage;
+          } else {
+            state.errorMessage = payload.message;
           }
         });
         break;
@@ -62,5 +70,5 @@ export const errors = createSlice({
 });
 
 export const { clearError, addError } = errors.actions;
-export const selectErrorsSlice = (state) => state.errors;
+export const selectErrorsSlice = (state: RootState) => state.errors;
 export default errors.reducer;
