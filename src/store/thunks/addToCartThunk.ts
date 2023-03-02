@@ -16,7 +16,9 @@ export const addToCartThunk = createAsyncThunk<Product, Product, AsyncThunkConfi
       });
     }
 
-    if (cart.products && Object.keys(cart.products).length >= MAX_PRODUCTS) {
+    const keysArray = Object.keys(cart.products);
+
+    if (cart.products && keysArray.length >= MAX_PRODUCTS && !keysArray.includes(product.id.toString())) {
       return rejectWithValue({
         message: `You cannot add more than ${MAX_PRODUCTS} types of products.`,
       });

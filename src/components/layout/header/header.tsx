@@ -1,7 +1,6 @@
 import { AppBar, Toolbar } from "@mui/material";
 import { ShoppingCart } from "components/modules/shoppingCart";
 import { LinkStyled } from "./styled";
-import { Error } from "../error";
 
 const Header = () => {
   return (
@@ -15,7 +14,6 @@ const Header = () => {
         </LinkStyled>
         <ShoppingCart />
       </Toolbar>
-      <Error />
     </AppBar>
   );
 };

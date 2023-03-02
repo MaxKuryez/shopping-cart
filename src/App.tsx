@@ -1,8 +1,12 @@
 import Router from "./Router";
+import { Error } from "components/layout/error";
 
 function App() {
   return (
-    <Router />
+    <>
+      <Router />
+      <Error />
+    </>
   );
 }
 
