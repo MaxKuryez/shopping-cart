@@ -3,13 +3,12 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
-  Button,
-  Select,
   MenuItem
 } from "@mui/material";
 import { removeProduct, changeQuantity } from "store/slices";
 import { useDispatch } from "react-redux";
 import { MAX_PRODUCTS_OF_SAME_TYPE } from "constants";
+import { StyledButton, StyledSelect } from "./styled";
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -36,16 +35,16 @@ const CartProduct = ({ product }) => {
           : product.title}
         secondary={`${product.price}$`}
       />
-      <Select variant="standard" value={product.quantity} onChange={handleQuantityChange} sx={{ marginRight: "40px" }}>
+      <StyledSelect variant="standard" value={product.quantity} onChange={handleQuantityChange}>
       {quantities.map((quantity) => (
         <MenuItem key={quantity} value={quantity}>
           {quantity}
         </MenuItem>
       ))}
-    </Select>
-      <Button variant="contained" size="small" onClick={handleRemoveItem} sx={{height: 25, fontSize: 12}}>
+      </StyledSelect>
+      <StyledButton variant="outlined" size="small" onClick={handleRemoveItem}>
         Remove
-      </Button>
+      </StyledButton>
     </ListItem>
   );
 };

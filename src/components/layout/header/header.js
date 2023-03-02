@@ -1,18 +1,18 @@
 import { AppBar, Toolbar } from "@mui/material";
 import { ShoppingCart } from "components/modules/shoppingCart";
-import { NavLink } from "react-router-dom";
+import { LinkStyled } from "./styled";
 import { Error } from "../error";
 
 const Header = () => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <NavLink to={"/"}>
+        <LinkStyled to={"/"}>
           Product Page
-        </NavLink>
-        <NavLink to={"/documentation"}>
+        </LinkStyled>
+        <LinkStyled to={"/documentation"}>
           Documentation
-        </NavLink>
+        </LinkStyled>
         <ShoppingCart />
       </Toolbar>
       <Error />

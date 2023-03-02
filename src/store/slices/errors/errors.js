@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import * as AsyncThunksModule from "../../thunks";
+import * as AsyncThunksModule from "store/thunks";
 import { extractErrorMessage } from "./utils";
 
 const AsyncThunksArray = Object.values(AsyncThunksModule);

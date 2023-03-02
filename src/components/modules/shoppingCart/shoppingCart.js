@@ -1,18 +1,20 @@
 import { useState } from "react";
 import {
   Drawer,
-  List,
-  ListItem,
   ListItemText,
   Divider,
-  Typography,
-  IconButton,
-  Button
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { selectCartSlice } from "store/slices";
 import { useSelector } from "react-redux";
 import { CartProduct } from "../cartProduct";
+import {
+  IconStyled,
+  CartList,
+  CartListItem,
+  CloseButton,
+  StyledTypography
+} from "./styled";
 
 const ShoppingCart = () => {
   const [open, setOpen] = useState(false);
@@ -20,9 +22,12 @@ const ShoppingCart = () => {
 
   return (
     <>
-    <IconButton variant="contained" size="small" onClick={() => setOpen(true)}><ShoppingCartIcon /></IconButton>
-    <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-      <List sx={{ width: 450 }}>
+      <IconStyled variant="contained" size="small" onClick={() => setOpen(true)}>
+        <ShoppingCartIcon />
+        Shopping Cart
+      </IconStyled>
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <CartList>
           {Object.keys(products).length
             ? <>
                 {Object.keys(products).map((key) => {
@@ -30,18 +35,18 @@ const ShoppingCart = () => {
                   return <CartProduct product={product} key={key}/>
                 })}
                 <Divider />
-                <ListItem sx={{ fontWeight: "bold" }}>
+                <CartListItem>
                   <ListItemText primary={`Total: ${totalCost}$`} />
-                </ListItem>
+                </CartListItem>
               </>
-            : <Typography sx={{ p: 2 }}>Your cart is empty.</Typography>
+            : <StyledTypography>Your cart is empty.</StyledTypography>
           }
           <Divider />
-          <Button variant="contained" size="small" onClick={() => setOpen(false)} sx={{height: 25, fontSize: 12}}>
+          <CloseButton variant="outlined" size="small" onClick={() => setOpen(false)}>
             Close
-          </Button>
-      </List>
-    </Drawer>
+          </CloseButton>
+        </CartList>
+      </Drawer>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ENDPOINTS } from "../../constants";
+import { ENDPOINTS } from "constants";
 
 export const getProductsThunk = createAsyncThunk(
   "getProductsThunk",
