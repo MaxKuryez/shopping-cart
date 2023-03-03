@@ -14,7 +14,8 @@ import {
   CartList,
   CartListItem,
   CloseButton,
-  StyledTypography
+  StyledTypography,
+  LinkStyled
 } from "./styled";
 
 const ShoppingCart = () => {
@@ -47,6 +48,9 @@ const ShoppingCart = () => {
           <Divider />
           <CloseButton variant="outlined" size="small" onClick={() => setOpen(false)}>
             Close
+          </CloseButton>
+          <CloseButton variant="outlined" size="small">
+            <LinkStyled to="/cart">Go to cart</LinkStyled>
           </CloseButton>
         </CartList>
       </Drawer>

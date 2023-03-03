@@ -6,10 +6,10 @@ const Header = () => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <LinkStyled to={"/"}>
+        <LinkStyled to="/">
           Product Page
         </LinkStyled>
-        <LinkStyled to={"/documentation"}>
+        <LinkStyled to="/documentation">
           Documentation
         </LinkStyled>
         <ShoppingCart />

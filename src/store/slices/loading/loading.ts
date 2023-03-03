@@ -3,7 +3,7 @@ import * as AsyncThunksModule from "store/thunks";
 import { RootState } from "store/types";
 import { LoadingStateType } from "./types";
 
-const AsyncThunksArray = Object.values(AsyncThunksModule);
+const AsyncThunksArray = Object.values(AsyncThunksModule).filter(thunk => thunk.typePrefix.includes("Thunk"));
 type AsyncThunks = (typeof AsyncThunksArray)[number];
 
 const initialState = {
