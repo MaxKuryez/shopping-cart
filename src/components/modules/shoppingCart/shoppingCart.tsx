@@ -44,7 +44,7 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <Typography variant="h3" component="h1" gutterBottom>
+      <Typography variant="h3" component="h1" marginTop="100px" marginBottom="20px" textAlign="center">
         Shopping Cart
       </Typography>
       {Object.keys(products).length ? (
@@ -100,9 +100,12 @@ const ShoppingCart = () => {
           </StyledButton>
           </List>
       ) : (
-        <Typography variant="h3" component="h1">
-          Your cart is empty.
-        </Typography>
+        <>
+          <Divider />
+          <Typography variant="h5" component="h1" marginTop="20px" marginLeft="30px">
+            Your cart is empty.
+          </Typography>
+        </>
       )}
     </>
   );
