@@ -8,7 +8,7 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { selectCartSlice } from "store/slices";
 import { useTypedSelector } from "store/hooks";
-import { CartProduct } from "../cartProduct";
+import { DrawerProduct } from "../drawerProduct";
 import {
   IconStyled,
   CartList,
@@ -36,7 +36,7 @@ const ShoppingCartDrawer = () => {
             ? <>
                 {Object.keys(products).map((key) => {
                   const product = products[key];
-                  return <CartProduct product={product} key={key}/>
+                  return <DrawerProduct product={product} key={key}/>
                 })}
                 <Divider />
                 <CartListItem>

@@ -1,10 +1,10 @@
 import { Snackbar, Alert, AlertTitle } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from "store/hooks";
 import { clearError, selectErrorsSlice } from "store/slices";
 
 const Error = () => {
-  const dispatch = useDispatch();
-  const { errorCode, errorMessage } = useSelector(selectErrorsSlice);
+  const dispatch = useTypedDispatch();
+  const { errorCode, errorMessage } = useTypedSelector(selectErrorsSlice);
 
   const handleClose = () => {
     dispatch(clearError());

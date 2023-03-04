@@ -1,14 +1,14 @@
 import {
   CardContent,
 } from "@mui/material";
-import Rating from "@mui/material/Rating";
 import {
   StyledCard,
   ProductTitle,
   GridStyled,
   PriceTypography,
   ButtonStyled,
-  MagnifierStyled
+  MagnifierStyled,
+  RatingStiled
 } from "./styled";
 import { useTypedDispatch } from "store/hooks";
 import { addToCartThunk } from "store/thunks";
@@ -41,11 +41,10 @@ const ShopProduct = ({ product }: ShopProductProps) => {
               ? `${product.title.substring(0, MAX_TITLE_LENGTH)}...`
               : product.title}
           </ProductTitle>
-          <Rating
+          <RatingStiled
             name="half-rating-read"
             value={product.rating.rate}
             precision={0.2}
-            style={{width: "100%"}}
             readOnly
           />
           <PriceTypography

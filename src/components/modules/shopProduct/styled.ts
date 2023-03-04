@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 import {
   Grid,
   Typography,
-  CardMedia,
   Card,
-  Button
+  Button,
+  Rating
 } from "@mui/material";
 import { Magnifier } from "react-image-magnifiers";
 
@@ -13,13 +13,9 @@ export const StyledCard = styled(Card)({
   marginBottom: "20px",
 });
 
-export const ProductImage = styled(CardMedia)({
-  height: "250px",
-  "& img": {
-    objectFit: "contain",
-    height: "100%",
-  },
-}) as typeof CardMedia;
+export const RatingStiled = styled(Rating)({
+  width: "100%",
+});
 
 export const ProductTitle = styled(Typography)({
   height: 63
@@ -59,4 +55,4 @@ div {
     }
   }
 }
-` as typeof Magnifier;
+`;

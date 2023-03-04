@@ -2,16 +2,23 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Avatar,
   MenuItem,
   SelectChangeEvent,
-  Select
+  Divider,
 } from "@mui/material";
 import { removeProduct, changeQuantity } from "store/slices";
 import { useTypedDispatch } from "store/hooks";
 import { MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
-import { StyledButton } from "./styled";
-import { CartProductType } from "types"
+import { MouseEvent } from "react" 
+import { 
+  MediumAvatar,
+  MediumPrice,
+  MediumTitle,
+  StyledSelect,
+  StyledButton,
+} from "./styled";
+import { CartProductType } from "types";
+
 
 interface CartProductProps {
   product: CartProductType;
@@ -19,10 +26,10 @@ interface CartProductProps {
 
 const CartProduct = ({ product }: CartProductProps) => {
   const dispatch = useTypedDispatch();
-  const MAX_TITLE_LENGTH = 20;
   const quantities = Array.from({ length: MAX_PRODUCTS_OF_SAME_TYPE }, (_, i) => i + 1);
 
-  const handleRemoveItem = () => {
+  const handleRemoveItem = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     dispatch(removeProduct(product.id));
   };
 
@@ -32,27 +39,39 @@ const CartProduct = ({ product }: CartProductProps) => {
   };
 
   return (
-    <ListItem key={product.id}>
-      <ListItemAvatar>
-        <Avatar src={product.image} />
-      </ListItemAvatar>
-      <ListItemText
-        primary={product.title.length > MAX_TITLE_LENGTH
-          ? `${product.title.substring(0, MAX_TITLE_LENGTH)}...`
-          : product.title}
-        secondary={`${product.price}$`}
-      />
-      <Select variant="standard" value={product.quantity} onChange={handleQuantityChange}>
-      {quantities.map((quantity) => (
-        <MenuItem key={quantity} value={quantity}>
-          {quantity}
-        </MenuItem>
-      ))}
-      </Select>
-      <StyledButton variant="outlined" size="small" onClick={handleRemoveItem}>
-        Remove
-      </StyledButton>
-    </ListItem>
+    <>
+      <ListItem key={product.id}>
+        <ListItemAvatar>
+          <MediumAvatar src={product.image} />
+        </ListItemAvatar>
+        <ListItemText>
+          <MediumTitle>
+            {product.title}
+          </MediumTitle>
+          <MediumPrice>{`${product.price}$`}</MediumPrice>
+          <StyledSelect
+            variant="standard"
+            value={product.quantity}
+            onChange={handleQuantityChange}
+          >
+            {quantities.map((quantity) => (
+              <MenuItem key={quantity} value={quantity}>
+                {quantity}
+              </MenuItem>
+            ))}
+          </StyledSelect>
+        </ListItemText>
+        <StyledButton
+          variant="outlined"
+          size="small"
+          onClick={handleRemoveItem}
+          color="error"
+        >
+          Remove
+        </StyledButton>
+      </ListItem>
+      <Divider variant="fullWidth" />
+    </>
   );
 };
 

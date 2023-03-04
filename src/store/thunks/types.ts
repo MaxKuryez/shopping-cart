@@ -5,4 +5,7 @@ export interface ProductError {
   message: string;
 };
 
-export interface AsyncThunkConfig { rejectValue: AxiosError<{ message: string } | string> | ProductError; state: RootState };
+export interface AsyncThunkConfig {
+  rejectValue: AxiosError<{ message: string } | string> | ProductError;
+  state: RootState
+};
