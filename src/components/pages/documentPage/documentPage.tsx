@@ -43,7 +43,7 @@ const DocumentPage = () => {
         Also, the categories are in this slice, they are requested from the API separately so that even if one request fails, the other 
         one will work
         <br/>
-        This slice is not stored using persist store, because it makes sense that the products will be fetch when the page is reloaded,
+        This slice is not stored using persist store, because it makes sense that the products will be fetched when the page is reloaded,
         but once loaded, there is no need to fetch again.
         <br/><br/>
         The Cart Slice is stored in persist store, so the user does not loose the products that were added to the cart.
