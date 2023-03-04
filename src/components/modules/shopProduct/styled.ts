@@ -6,6 +6,7 @@ import {
   Card,
   Button
 } from "@mui/material";
+import { Magnifier } from "react-image-magnifiers";
 
 export const StyledCard = styled(Card)({
   width: "300px",
@@ -39,3 +40,23 @@ export const ButtonStyled = styled(Button)({
   display: "inline-block",
   float: "right",
 });
+
+export const MagnifierStyled = styled(Magnifier)`
+width: 300px;
+height: 300px;
+object-fit: contain;
+div {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  img {
+    object-fit: contain;
+    height: 300px;
+  }
+  div {
+    img {
+      height: auto;
+    }
+  }
+}
+` as typeof Magnifier;

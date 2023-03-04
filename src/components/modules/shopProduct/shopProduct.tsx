@@ -4,11 +4,11 @@ import {
 import Rating from "@mui/material/Rating";
 import {
   StyledCard,
-  ProductImage,
   ProductTitle,
   GridStyled,
   PriceTypography,
-  ButtonStyled
+  ButtonStyled,
+  MagnifierStyled
 } from "./styled";
 import { useTypedDispatch } from "store/hooks";
 import { addToCartThunk } from "store/thunks";
@@ -29,10 +29,11 @@ const ShopProduct = ({ product }: ShopProductProps) => {
   return (
     <GridStyled item key={product.id}>
       <StyledCard>
-          <ProductImage
-            component="img"
-            image={product.image}
-            alt={product.title}
+          <MagnifierStyled
+            imageSrc={product.image}
+            imageAlt="Example"
+            largeImageSrc={product.image}
+            dragToMove={false}
           />
           <CardContent>
           <ProductTitle gutterBottom variant="h5" component="h2">

@@ -15,6 +15,7 @@ export const IconStyled = styled(IconButton)({
 
 export const CartList = styled(List)({
   width: "450px",
+  marginBottom: 20
 });
 
 export const CartListItem = styled(ListItem)({

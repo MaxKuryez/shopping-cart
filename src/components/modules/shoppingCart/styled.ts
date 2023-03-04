@@ -30,11 +30,17 @@ export const MediumPrice = styled(Typography)({
 });
 
 export const StyledSelect = styled(Select)({
-  marginLeft: "10px",
-  marginRight: "10px",
+  marginLeft: "30px",
+  marginRight: "10px"
 }) as ComponentType<SelectProps<number>>;
 
 export const StyledButton = styled(Button)({
-  marginLeft: "auto",
-  marginRight: "10px",
+  marginLeft: "120px",
+  marginRight: "80px",
+  display: "inline-flex"
 });
+
+export const TotalPrice = styled(Typography)({
+  margin: "30px 0 30px 110px",
+  display: "inline-flex"
+}) as typeof Typography;

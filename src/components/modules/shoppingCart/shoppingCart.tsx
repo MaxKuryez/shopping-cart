@@ -18,7 +18,8 @@ import {
   MediumPrice,
   MediumTitle,
   StyledSelect,
-  StyledButton
+  StyledButton,
+  TotalPrice
 } from "./styled";
 
 
@@ -47,52 +48,59 @@ const ShoppingCart = () => {
         Shopping Cart
       </Typography>
       {Object.keys(products).length ? (
-        <>
-          <List>
-            {Object.keys(products).map((key) => {
-              const product = products[key];
-              return (
-                <ListItem key={product.id}>
-                  <ListItemAvatar>
-                    <MediumAvatar src={product.image} />
-                  </ListItemAvatar>
-                  <ListItemText>
-                    <MediumTitle>
-                      {product.title}
-                    </MediumTitle>
-                    <MediumPrice>{`${product.price}$`}</MediumPrice>
-                    <StyledSelect
-                      variant="outlined"
-                      value={product.quantity}
-                      onChange={(event) =>
-                        handleQuantityChange(product.id, event)
-                      }
-                    >
-                      {quantities.map((quantity) => (
-                        <MenuItem key={quantity} value={quantity}>
-                          {quantity}
-                        </MenuItem>
-                      ))}
-                    </StyledSelect>
-                  </ListItemText>
-                  <StyledButton
-                    variant="outlined"
-                    size="small"
-                    onClick={(event) => handleRemoveItem(event, product.id)}
+        <List>
+          {Object.keys(products).map((key) => {
+            const product = products[key];
+            return (
+              <>
+              <ListItem key={product.id}>
+                <ListItemAvatar>
+                  <MediumAvatar src={product.image} />
+                </ListItemAvatar>
+                <ListItemText>
+                  <MediumTitle>
+                    {product.title}
+                  </MediumTitle>
+                  <MediumPrice>{`${product.price}$`}</MediumPrice>
+                  <StyledSelect
+                    variant="standard"
+                    value={product.quantity}
+                    onChange={(event) =>
+                      handleQuantityChange(product.id, event)
+                    }
                   >
-                    Remove
-                  </StyledButton>
-                </ListItem>
-              );
-            })}
-            <Divider />
-            <ListItem>
-              <ListItemText primary={`Total: ${totalCost}$`} />
-            </ListItem>
+                    {quantities.map((quantity) => (
+                      <MenuItem key={quantity} value={quantity}>
+                        {quantity}
+                      </MenuItem>
+                    ))}
+                  </StyledSelect>
+                </ListItemText>
+                <StyledButton
+                  variant="outlined"
+                  size="small"
+                  onClick={(event) => handleRemoveItem(event, product.id)}
+                >
+                  Remove
+                </StyledButton>
+              </ListItem>
+              <Divider variant="fullWidth" />
+              </>
+            );
+          })}
+          <Divider />
+          <TotalPrice variant="h5" component="h1">
+            {`Total: ${totalCost}$`}
+          </TotalPrice>
+          <StyledButton
+            variant="contained"
+            size="large"
+          >
+            Buy
+          </StyledButton>
           </List>
-        </>
       ) : (
-        <Typography variant="h6" component="p">
+        <Typography variant="h3" component="h1">
           Your cart is empty.
         </Typography>
       )}
