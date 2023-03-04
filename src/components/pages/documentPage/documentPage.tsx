@@ -6,6 +6,22 @@ const DocumentPage = () => {
     <>
       <Header />
       <HeaderCopy variant="h3" component="h1" gutterBottom textAlign="center">Documentation</HeaderCopy>
+      <TypographyStyled variant="h4" component="h1">User Experience:</TypographyStyled>
+      <TypographyStyled variant="h5" component="h1">
+        1. The products:
+        <br/><br/>
+        The images on products can be zoomed in by clicking on them.
+        <br/>
+        The products can be sorted by categories, that can be selected in the left corner on the page.
+        <br/><br/>
+        2. Cart Page:
+        <br/><br/>
+        In order to proceed to the cart page, click the "go to cart" button in the cart drawer.
+        <br/>
+        The number of items can be changed in cart both in drawer and page, by selecting the number in the box.
+        <br/>
+        Also, each product can be removed from cart by clicking "remove" button.
+      </TypographyStyled>
       <TypographyStyled variant="h4" component="h1">Redux:</TypographyStyled>
       <TypographyStyled variant="h5" component="h1">
         1. The states are separated into 4 slices:
@@ -23,6 +39,9 @@ const DocumentPage = () => {
         The Products Slice is requested from the API and is saved to the state,
         when you switch to other page and then return back, the thunk that handles the request does not make another request,
         because it checks that the products are already in the state.
+        <br/>
+        Also, the categories are in this slice, they are requested from the API separately so that even if one request fails, the other 
+        one will work
         <br/>
         This slice is not stored using persist store, because it makes sense that the products will be fetch when the page is reloaded,
         but once loaded, there is no need to fetch again.
