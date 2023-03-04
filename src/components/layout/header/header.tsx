@@ -1,5 +1,5 @@
 import { AppBar, Toolbar } from "@mui/material";
-import { ShoppingCart } from "components/modules/shoppingCart";
+import { ShoppingCartDrawer } from "components/modules/shoppingCartDrawer";
 import { LinkStyled } from "./styled";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
         <LinkStyled to="/documentation">
           Documentation
         </LinkStyled>
-        <ShoppingCart />
+        <ShoppingCartDrawer />
       </Toolbar>
     </AppBar>
   );

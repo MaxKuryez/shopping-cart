@@ -29,9 +29,11 @@ const extraReducersBuilder = (asyncThunk: AsyncThunks, builder: ActionReducerMap
           if (!payload) return;
           if (payload instanceof AxiosError) {
             console.log(payload);
-            const errorMessage = payload.response 
-              ? extractErrorMessage(payload.response?.data as string)
-              : payload.message;
+            const errorMessage = !payload.response
+              ? payload.message
+              : typeof payload.response.data === "string"
+                ? extractErrorMessage(payload.response.data)
+                : payload.response.data.message;
 
             state.errorCode = payload.response ? payload.response.status : null;
             state.errorMessage = errorMessage;

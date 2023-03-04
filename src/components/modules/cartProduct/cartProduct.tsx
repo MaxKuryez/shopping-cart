@@ -8,7 +8,7 @@ import {
   Select
 } from "@mui/material";
 import { removeProduct, changeQuantity } from "store/slices";
-import { useDispatch } from "react-redux";
+import { useTypedDispatch } from "store/hooks";
 import { MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
 import { StyledButton } from "./styled";
 import { CartProductType } from "types"
@@ -18,7 +18,7 @@ interface CartProductProps {
 };
 
 const CartProduct = ({ product }: CartProductProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useTypedDispatch();
   const MAX_TITLE_LENGTH = 20;
   const quantities = Array.from({ length: MAX_PRODUCTS_OF_SAME_TYPE }, (_, i) => i + 1);
 

@@ -1,3 +1,3 @@
-export  const capitalazied = (value: string) => {
+export const capitalazied = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };

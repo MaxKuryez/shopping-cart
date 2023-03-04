@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Select, SelectProps } from "@mui/material";
+import { ComponentType } from "react";
 
 export const Container = styled("div")({
   display: "flex",
@@ -8,3 +10,8 @@ export const Container = styled("div")({
   justifyContent: "center",
   padding: "20px",
 });
+
+export const SelectCategory = styled(Select)({
+  marginLeft: 25,
+  width: 174
+}) as ComponentType<SelectProps<string>>;

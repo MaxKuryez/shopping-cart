@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Grid, Typography, Select, MenuItem, SelectChangeEvent } from "@mui/material";
-import { Container } from "./styled";
+import { Grid, Typography, MenuItem, SelectChangeEvent } from "@mui/material";
+import { Container, SelectCategory } from "./styled";
 import { getProductsThunk, getCategoriesThunk } from "store/thunks";
 import { useTypedDispatch, useTypedSelector } from "store/hooks";
 import { selectProductsSlice } from "store/slices";
@@ -26,16 +26,16 @@ const ProductList = () => {
     <Typography variant="h3" component="h1" gutterBottom textAlign="center" marginTop={15}>
       Products
     </Typography>
-    <Select
-        value={categoryFilter}
-        onChange={handleFilter}
-        displayEmpty
-      >
-        <MenuItem value="">All Categories</MenuItem>
-        {categories.map((category) =>
-          <MenuItem value={category} key={category}>{capitalazied(category)}</MenuItem>
-        )}
-    </Select>
+    <SelectCategory
+      value={categoryFilter}
+      onChange={handleFilter}
+      displayEmpty
+    >
+      <MenuItem value="">All Categories</MenuItem>
+      {categories.map((category) =>
+        <MenuItem value={category} key={category}>{capitalazied(category)}</MenuItem>
+      )}
+    </SelectCategory>
     <Container>
       <Grid container>
         {products.filter((product) => product.category.includes(categoryFilter)

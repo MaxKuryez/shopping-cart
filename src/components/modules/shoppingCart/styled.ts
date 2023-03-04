@@ -1,39 +1,40 @@
-import styled from "@emotion/styled";
 import {
-  List,
-  ListItem,
-  IconButton,
+  Avatar,
+  Select,
+  Typography,
   Button,
-  Typography
+  SelectProps
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { styled } from "@mui/system";
+import { ComponentType } from "react";
 
-export const IconStyled = styled(IconButton)({
-  marginLeft: "auto",
-  color: "#fff"
+export const MediumAvatar = styled(Avatar)({
+  width: 200,
+  height: 190,
+  borderRadius: 0,
+  marginLeft: 90
 });
 
-export const CartList = styled(List)({
-  width: "450px",
-});
-
-export const CartListItem = styled(ListItem)({
+export const MediumTitle = styled(Typography)({
   fontWeight: "bold",
+  fontSize: "20px",
+  marginBottom: "10px",
+  marginLeft: "25px"
 });
 
-export const CloseButton = styled(Button)({
-  fontSize: "12px",
-  marginLeft: "15%",
-  marginRight: "15%",
-  marginTop: 20,
-  height: 28
+export const MediumPrice = styled(Typography)({
+  fontSize: "20px",
+  marginBottom: "10px",
+  marginLeft: "25px",
+  display: "inline-flex"
 });
 
-export const StyledTypography = styled(Typography)({
-  padding: 16
-});
+export const StyledSelect = styled(Select)({
+  marginLeft: "10px",
+  marginRight: "10px",
+}) as ComponentType<SelectProps<number>>;
 
-export const LinkStyled = styled(Link)({
-  color: "#1976d2",
-  textDecoration: "none"
+export const StyledButton = styled(Button)({
+  marginLeft: "auto",
+  marginRight: "10px",
 });
