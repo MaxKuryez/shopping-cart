@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProductsThunk } from "store/thunks";
+import { getProductsThunk, getCategoriesThunk } from "store/thunks";
 import { RootState } from "store/types";
 import { Product } from "types";
 
 const initialState = {
   products: [] as Product[],
+  categories: [] as string[],
 };
 
 export const products = createSlice({
@@ -16,6 +17,10 @@ export const products = createSlice({
       .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
         if (!Array.isArray(payload)) return;
         state.products = payload;
+      })
+      .addCase(getCategoriesThunk.fulfilled, (state, { payload }) => {
+        if (!Array.isArray(payload)) return;
+        state.categories = payload;
       })
   },
 });
