@@ -14,6 +14,12 @@ const DocumentPage = () => {
         <br/>
         The products can be sorted by categories, that can be selected in the left corner on the page.
         <br/><br/>
+        In order to add a product to the cart, click the add to cart page, then the product view window will appear where
+        you can see all the information about the product and select the number of products that you want to add to the cart.
+        <br/>
+        If the cart already has some products, you will not be able to exceed the maximum amount of products in cart and the
+        error will be shown.
+        <br/><br/>
         2. Cart Page:
         <br/><br/>
         In order to proceed to the cart page, click the "go to cart" button in the cart drawer.
