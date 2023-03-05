@@ -38,17 +38,17 @@ export const cart = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(addToCartThunk.fulfilled, (state, { payload }) => {
-        const { id, price } = payload;
+        const { product, quantity } = payload;
 
-        if (state.products[id]) {
-          state.products[id].quantity += 1;
+        if (state.products[product.id]) {
+          state.products[product.id].quantity += quantity;
         } else {
-          state.products[id] = { ...payload, quantity: 1 };
+          state.products[product.id] = { ...product, quantity: quantity };
         }
 
-        state.totalCost = Number(state.totalCost) + Number(price);
+        state.totalCost = Number(state.totalCost) + (Number(product.price) * Number(quantity));
         state.totalCost = Number(state.totalCost.toFixed(2));
-        state.numberItems += 1;
+        state.numberItems += Number(quantity);
       })
   },
 });

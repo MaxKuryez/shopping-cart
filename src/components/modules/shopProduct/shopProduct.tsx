@@ -1,6 +1,7 @@
 import {
   CardContent,
 } from "@mui/material";
+import { useState } from "react";
 import {
   StyledCard,
   ProductTitle,
@@ -13,17 +14,19 @@ import {
 import { useTypedDispatch } from "store/hooks";
 import { addToCartThunk } from "store/thunks";
 import { Product } from "types";
+import { ProductView } from "../productView";
 
 interface ShopProductProps {
   product: Product;
 };
 
 const ShopProduct = ({ product }: ShopProductProps) => {
+  const [isViewOpen, setViewOpen] = useState(false);
   const MAX_TITLE_LENGTH = 30;
   const dispatch = useTypedDispatch();
 
-  const addToCart = () => {
-    dispatch(addToCartThunk(product));
+  const addToCart = (quantity: number) => {
+    dispatch(addToCartThunk({product, quantity}));
   }
 
   return (
@@ -54,9 +57,10 @@ const ShopProduct = ({ product }: ShopProductProps) => {
           >
             {product.price} $
           </PriceTypography>
-          <ButtonStyled variant="contained" size="small" onClick={addToCart}>
+          <ButtonStyled variant="contained" size="small" onClick={() => setViewOpen(true)}>
             Add to Cart
           </ButtonStyled>
+          <ProductView product={product} isOpen={isViewOpen} onClose={() => setViewOpen(false)} onAddToCart={addToCart}/>
         </CardContent>
       </StyledCard>
     </GridStyled>
