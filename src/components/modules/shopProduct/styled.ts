@@ -41,6 +41,7 @@ export const MagnifierStyled = styled(Magnifier)`
 width: 300px;
 height: 300px;
 object-fit: contain;
+cursor: zoom-in;
 div {
   width: 300px;
   height: 300px;
