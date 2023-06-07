@@ -24,6 +24,7 @@ export const StyledFormControl = styled(FormControl)({
   width: "100px",
   marginLeft: "50px",
   marginTop: "10px",
+  textAlign: "center"
 });
 
 export const FlexContainer = styled("div")({
