@@ -13,6 +13,7 @@ import { MAX_PRODUCTS_OF_SAME_TYPE } from "utils";
 import { StyledButton } from "./styled";
 import { CartProductType } from "types"
 
+//HI HI HI 
 interface CartProductProps {
   product: CartProductType;
 };
