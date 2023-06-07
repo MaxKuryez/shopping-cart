@@ -18,6 +18,7 @@ interface CartProductProps {
   product: CartProductType;
 };
 
+//CHANGE HERE
 const DrawerProduct = ({ product }: CartProductProps) => {
   const dispatch = useTypedDispatch();
   const MAX_TITLE_LENGTH = 20;
